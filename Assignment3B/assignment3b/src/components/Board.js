@@ -33,7 +33,6 @@ function Board({ rows, onSquareClick, highlightMistakes }) {
               key={cellIndex}
               currentState={cell.currentState}
               correctState={cell.correctState}
-
               canToggle={cell.canToggle}
               onClick={() => handleSquareClick(rowIndex, cellIndex)}
               highlight={highlightMistakes && cell.currentState !== cell.correctState && cell.currentState !== 0}

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Board from './Board';
 
+//Get mode from the App.js routing
 function Game({ mode }) {
   const [data, setData] = useState(null);
   const [statusMessage, setStatusMessage] = useState('');
@@ -54,8 +55,10 @@ function Game({ mode }) {
     data.rows.forEach((row, rowIndex) => {
       row.forEach((cell, cellIndex) => {
         if (cell.currentState === 0) {
+          //A cell is empty
           isComplete = false;
         } else if (cell.currentState !== cell.correctState) {
+          //A cell is wrong
           somethingIsWrong = true;
         }
       });
@@ -69,13 +72,14 @@ function Game({ mode }) {
       setStatusMessage('You did it!!');
     }
   };
+
+  //Swap between highlighted and non-highighted states
   const highlightMistakesFunction = () => {
     setHighlightMistakes(prev => !prev); 
   };
 
-
   return (
-    <div>
+    <>
       {isLoading ? (
         <div>Loading puzzle...</div> 
       ) : (
@@ -98,7 +102,7 @@ function Game({ mode }) {
 
       <button onClick={checkPuzzle} disabled={isLoading}>Check Puzzle</button>
       <div>{statusMessage}</div>
-    </div>
+    </>
   );
 }
 

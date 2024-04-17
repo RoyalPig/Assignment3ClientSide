@@ -9,7 +9,8 @@ function Square({ currentState, onClick, canToggle, highlight }) {
       default: return 'green';
     }
   };
-
+  
+  //Prevents user from clicking a square that started there from the url
   const handleClick = () => {
     if (canToggle) {
       onClick();

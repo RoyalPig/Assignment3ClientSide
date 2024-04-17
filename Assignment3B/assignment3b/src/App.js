@@ -5,6 +5,7 @@ import Game from './components/Game';
 
 function App() {
   return (
+    //Router for the diffrences in game modes
     <Router>
       <div className="App">
         <h1>Three-in-a-Row Game</h1>
@@ -21,8 +22,9 @@ function App() {
   );
 }
 
+//Route to here if user clicks home
 function Home() {
-  return <div>Welcome to the Three-in-a-Row Game! Select a mode to begin.</div>;
+  return <>Welcome to the Three-in-a-Row Game! Select a mode to begin.</>;
 }
 
 export default App;
